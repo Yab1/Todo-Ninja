@@ -16,7 +16,7 @@ export default function TodoForm({ value, inputHandler, addTodo }) {
         onChangeText={(text) => inputHandler(text)}
         value={value}
       />
-      <TouchableOpacity style={styles.touchable} onPress={()=>addTodo()}>
+      <TouchableOpacity style={styles.touchable} onPress={() => addTodo()}>
         <Text style={styles.btnTxt}>Add Todo</Text>
       </TouchableOpacity>
     </View>
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     paddingVertical: 10,
     paddingHorizontal: 25,
-    fontSize: 20,
+    fontSize: 15,
   },
   touchable: {
     backgroundColor: '#7986cb',

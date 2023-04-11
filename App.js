@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, FlatList } from 'react-native';
+import { StyleSheet, View, FlatList, Alert } from 'react-native';
 import Header from './components/Header';
 import Todo from './components/Todo';
 import TodoForm from './components/TodoForm';
@@ -21,11 +21,17 @@ export default function App() {
   };
 
   const addTodo = () => {
-    setTodos((prevTodos) => [
-      ...prevTodos,
-      { title: value, key: Math.random().toString() },
-    ]);
-    setValue('');
+    if (value.length > 3) {
+      setTodos((prevTodos) => [
+        ...prevTodos,
+        { title: value, key: Math.random().toString() },
+      ]);
+      setValue('');
+    } else {
+      Alert.alert('OOPS!', 'Todos must be 3 characters long', [
+        { title: 'Try Again', onPress: () => console.log('try again') },
+      ]);
+    }
   };
 
   return (
